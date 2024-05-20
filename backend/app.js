@@ -22,9 +22,11 @@ app.use(cookieParser())
 import router from './src/routes/credentailsRoutes.routes.js';
 import router1 from './src/routes/personalInfoRoutes.routes.js';
 import router2 from './src/routes/educational.router.js';
+import router3 from './src/routes/experience.routes.js';
 //routes declaration
 app.use('/api/v1/credentials',router)
 app.use('/api/v1/personalInfo',router1)
 app.use('/api/v1/educationalInfo',router2)
+app.use('/api/v1/experienceInfo',router3)
 
 export {app}
