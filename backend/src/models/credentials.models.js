@@ -39,28 +39,28 @@ credentialSchema.methods.isPasswordCorrect=async function(password){
     return await bcrypt.compare(password,this.password)
 }
 
-credentialSchema.methods.generateAccessToken=function(){
-    jwt.sign(
+credentialSchema.methods.generateAccessToken = function(){
+    return jwt.sign(
         {
-            _id:this._id,
-            username:this.username,
-            email:this.email,
+            _id: this._id,
+            email: this.email,
+            username: this.username,
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
-            expiresIn:process.env.ACCESS_TOKEN_EXPIRY,
+            expiresIn: process.env.ACCESS_TOKEN_EXPIRY
         }
     )
 }
-
-credentialSchema.methods.generateRefreshToken=function(){
-    jwt.sign(
+credentialSchema.methods.generateRefreshToken = function(){
+    return jwt.sign(
         {
-            _id:this._id,
+            _id: this._id,
+            
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
-            expiresIn:process.env.REFRESH_TOKEN_EXPIRY,
+            expiresIn: process.env.REFRESH_TOKEN_EXPIRY
         }
     )
 }

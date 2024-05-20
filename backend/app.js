@@ -2,7 +2,6 @@ import express from 'express'
 import morgan from "morgan";
 import cors from "cors";
 import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
 const app = express();
 app.use(morgan("dev"));
 app.use(cors({
@@ -10,7 +9,7 @@ app.use(cors({
   credentials:true
 }));
 app.use(express.json())
-app.use(bodyParser.json())
+
 app.use(express.urlencoded({
   extended:true,
   limit:'16kb'
