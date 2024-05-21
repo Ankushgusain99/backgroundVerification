@@ -1,9 +1,9 @@
 import { Router } from "express";
 import jwt from 'jsonwebtoken'
-import { saveEducationalInfo } from "../controllers/educational.controller.js";
+import { createEducationalInfo } from "../controllers/educational.controller.js";
 
 const router2=Router()
 
-router2.route('/educationalInfo').post(saveEducationalInfo)
+router2.route('/createEducationalInfo').post(createEducationalInfo)
 
 export default router2

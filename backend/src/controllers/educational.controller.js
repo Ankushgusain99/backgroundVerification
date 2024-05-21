@@ -4,7 +4,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { Credential } from "../models/credentials.models.js";
 import { educationalDetails } from "../models/educationalInfo.models.js";
 
-const saveEducationalInfo=(asyncHandler(async(req,res)=>{
+const createEducationalInfo=(asyncHandler(async(req,res)=>{
     const{username,allDetails}=req.body
 
     const user=Credential.findOne({username})
@@ -32,4 +32,4 @@ const saveEducationalInfo=(asyncHandler(async(req,res)=>{
     )
 }))
 
-export {saveEducationalInfo}
+export {createEducationalInfo}

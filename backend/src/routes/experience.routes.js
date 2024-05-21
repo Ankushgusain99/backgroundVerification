@@ -1,9 +1,9 @@
 import { Router } from "express";
 import jwt from 'jsonwebtoken'
-import { saveExperienceInfo } from "../controllers/experience.controller.js";
+import { createExperienceInfo } from "../controllers/experience.controller.js";
 
 const router3=Router()
 
-router3.route('/experienceInfo').post(saveExperienceInfo)
+router3.route('/createExperienceInfo').post(createExperienceInfo)
 
 export default router3
