@@ -6,6 +6,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const uploadCreatedFiles=(asyncHandler(async(req,res)=>{
     const identityPath=req.files?.identity[0]?.path
+    
     if(!identityPath)
         throw ApiError(400,'Identity file is required')
 
@@ -20,7 +21,7 @@ const uploadCreatedFiles=(asyncHandler(async(req,res)=>{
     const identity = await uploadOnCloudinary(identityPath)
     const educational = await uploadOnCloudinary(educationalPath)
     const experience = await uploadOnCloudinary(experiencePath)
-
+   
     if (!identity) {
         throw new ApiError(400, "identity is required")
     }
@@ -31,9 +32,9 @@ const uploadCreatedFiles=(asyncHandler(async(req,res)=>{
         throw new ApiError(400, "educational file is required")
     }
     const user = await uploadDetails.create({
-        identity,
-        educational,
-        experience
+        identity: identity.url,
+        educational: educational.url,
+        experience: experience.url
     })
     return res.status(201).json(
         new ApiResponse(200, user, "Files uploaded Successfully")
